@@ -1,23 +1,15 @@
-export default function Shop() {
-    return <>
-        
+import DropDown from "@/components/Dropdown"
 
+export default function Shop() {
+    const categories =  [ 'All Categories', 'Electronics', 'Fashion', 'Home' ]
+    const sort_by = ['Sort by: Featured', 'Price: Low to High', 'Price: High to Low', 'Newest']
+    return <>
         <div className="px-6 py-4 flex gap-4 items-center shadow-sm">
-            <select className="border px-3 py-2 rounded-md bg-gray-800">
-                <option>All Categories</option>
-                <option>Electronics</option>
-                <option>Fashion</option>
-                <option>Home</option>
-            </select>
-            <select className="border px-3 py-2 rounded-md bg-gray-800">
-                <option>Sort by: Featured</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Newest</option>
-            </select>
+            <DropDown items = {categories}/>
+            <DropDown items = {sort_by}/>
         </div>
 
-        <main className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div className= "bg-gray-800 shadow rounded-lg overflow-hidden hover:shadow-lg transition">
                 <img src="https://placehold.co/300x200" alt="Product" className="w-full h-48 object-cover" />
                 <div className="p-4">
@@ -42,7 +34,7 @@ export default function Shop() {
                 </div>
             </div>
 
-        </main>
+        </div>
     </>
 
 }
