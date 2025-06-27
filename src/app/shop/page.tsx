@@ -1,13 +1,6 @@
 export default function Shop() {
     return <>
-        <header className="shadow-md p-4 flex justify-between items-center">
-            <h1 className="text-2xl font-bold">ShopMate</h1>
-            <input
-                type="text"
-                placeholder="Search products..."
-                className="border border-gray-300 rounded-lg px-3 py-1 w-1/3"
-            />
-        </header>
+        
 
         <div className="px-6 py-4 flex gap-4 items-center shadow-sm">
             <select className="border px-3 py-2 rounded-md bg-gray-800">

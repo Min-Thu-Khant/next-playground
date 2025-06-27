@@ -2,7 +2,8 @@
 
 import react from "react";
 import "./globals.css";
-import NavBar from "@/components/nav";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header"
 
 export default function RootLayout({
   children,
@@ -13,11 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <NavBar/> */}
+        <Header/>
         {children}
-         <footer className="text-center p-4 text-sm text-gray-500">
-          &copy; 2025 ShopMate. All rights reserved.
-        </footer>
+         <Footer/>
       </body>
       
     </html>
