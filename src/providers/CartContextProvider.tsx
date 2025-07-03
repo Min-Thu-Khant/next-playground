@@ -2,9 +2,7 @@
 import { Product } from "@/api/products/types"
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react"
 
-export type CartContextProviderProp = {
-    children : ReactNode
-}
+
 
 export type CartItem = {
     item: Product
@@ -16,6 +14,10 @@ export type CartContextType = {
     setItems: Dispatch<SetStateAction<CartItem[]>>
 }
 export const CartContext = createContext<CartContextType | undefined>(undefined)
+
+export type CartContextProviderProp = {
+    children : ReactNode
+}
 
 export default function CartContextProvider({ children } : CartContextProviderProp){
 

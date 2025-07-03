@@ -4,7 +4,7 @@ import { ShopButton } from '@/components/Button'
 import { Product } from '@/api/products/types'
 import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
-import { CartContext, CartItem } from '@/providers/CartContextProvider'
+import { CartContext } from '@/providers/CartContextProvider'
 
 export default function ProductCard( { product }: { product : Product}) {
     const router = useRouter()
