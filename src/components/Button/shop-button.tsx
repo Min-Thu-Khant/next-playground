@@ -1,7 +1,7 @@
 'use client'
 import { MouseEventHandler } from "react"
 
-type ShopButtonProp = {
+type ShopButtonProp =  React.InputHTMLAttributes<HTMLInputElement> & {
     text : string,
     onClick? : MouseEventHandler<HTMLButtonElement>
 }
