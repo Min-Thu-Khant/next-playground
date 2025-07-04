@@ -2,7 +2,7 @@
 import { CartContext } from "@/providers/CartContextProvider"
 import { TodoListStore } from "@/store/todoStore"
 import { useContext } from "react"
-
+import Link from "next/link"
 export default function Header () {
     const { items } = useContext(CartContext)!
     const { list, deleteAll } = TodoListStore()
@@ -15,6 +15,9 @@ export default function Header () {
     }
     return <header className="shadow-md p-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">ShopMate</h1>
+            <a href="/todo-context"> context by a</a>
+            <Link href={'/todo'}>todo</Link>
+            <Link href={'/todo-context'}>todo context</Link>
             <input
                 type="text"
                 placeholder="Search products..."

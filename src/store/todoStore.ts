@@ -1,5 +1,6 @@
 import { Task } from "@/components/Task";
 import { create } from "zustand";
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 
 type TodoStore = {
@@ -10,19 +11,24 @@ type TodoStore = {
     deleteAll: () => void
 }
 
-export const TodoListStore = create<TodoStore>((set) => ({
-    list: [{ name: 'buy something', isDone: false }, { name: 'drink water', isDone: true }],
-    addTodo: (name: string) => set((state) => ({ list: [...state.list, { name: name, isDone: false }] })),
-    deleteTodo: (name: string) => set((state) => ({ list: state.list.filter((l) => l.name != name) })),
-    updateTodo: (task : Task) => set((state)=> ({
-        list: state.list.map((l)=> {
-            if (l.name == task.name){
-                return task
-            }else{
-                return l
-            }
-        })
-    })),
-    deleteAll: () => set(()=> ({ list: []}))
+export const TodoListStore = create<TodoStore>()(persist(
+    (set, get) => ({
+        list: [],
+        addTodo: (name: string) => set(() => ({ list: [...get().list, { name: name, isDone: false }] })),
+        deleteTodo: (name: string) => set(() => ({ list: get().list.filter((l) => l.name != name) })),
+        updateTodo: (task: Task) => set(() => ({
+            list: get().list.map((l) => {
+                if (l.name == task.name) {
+                    return task
+                } else {
+                    return l
+                }
+            })
+        })),
+        deleteAll: () => set(() => ({ list: [] }))
 
-}))
+    }),
+    {
+        name: "todoStore"
+    }
+))

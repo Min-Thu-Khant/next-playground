@@ -16,7 +16,7 @@ export default function TodoContext() {
 
                 <div className="flex items-center gap-2 mb-4">
                     <TextBox text={text} handleChange={(setText)} placeholder="input dfsdfsd tasks here" />
-                    <ShopButton text="Add" onClick={() => addTodo(text) } />
+                    <ShopButton text="Add" onClick={() => {addTodo(text) ; setText("")}} />
 
                 </div>
                 <ul className="space-y-3">
