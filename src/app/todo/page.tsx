@@ -24,7 +24,7 @@ export default function Todo() {
             if (task.name == newTask.name) {
                 return newTask
             }
-            return task
+            return task 
         })
 
         setTasks(newTasks)

@@ -1,9 +1,11 @@
 'use client'
 import { CartContext } from "@/providers/CartContextProvider"
+import { TodoListStore } from "@/store/todoStore"
 import { useContext } from "react"
 
 export default function Header () {
     const { items } = useContext(CartContext)!
+    const { list, deleteAll } = TodoListStore()
 
     const getCartCount = () => {
         return items.reduce((acc, item )=> {
@@ -18,6 +20,8 @@ export default function Header () {
                 placeholder="Search products..."
                 className="border border-gray-300 rounded-lg px-3 py-1 w-1/3"
             />
+            <button onClick={deleteAll}>Delete All Tasks</button>
+            <div className="bg-green-600 p-1 rounded-sm">Todo List ({list.length})</div>
             <div className="bg-green-600 p-1 rounded-sm">Chart ({getCartCount()})</div>
         </header>
 }
